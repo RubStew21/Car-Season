@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Worth Fort Worth - Premium Auto Dealership</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(to right, #1a1a1a, #333);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ff0000;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .nav-menu {
+            background: #ff0000;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-info {
+            padding: 15px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit-button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Know Your Worth Fort Worth</div>
+        <p>Your Premier Auto Dealership in Fort Worth, Texas</p>
+    </div>
+
+    <div class="nav-menu">
+        <a href="#new">New Cars</a>
+        <a href="#used">Used Cars</a>
+        <a href="#lease">Leases</a>
+        <a href="#trade">Trade-Ins</a>
+    </div>
+
+    <div class="category-grid">
+        <!-- New Cars Section -->
+        <div class="car-card">
+            <img src="2025-truck.jpg" alt="2025 Truck Model" class="car-image">
+            <div class="car-info">
+                <h3>2025 Premium Truck</h3>
+                <p>Starting at $45,000</p>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="2025-sedan.jpg" alt="2025 Sedan Model" class="car-image">
+            <div class="car-info">
+                <h3>2025 Luxury Sedan</h3>
+                <p>Starting at $35,000</p>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="2025-suv.jpg" alt="2025 SUV Model" class="car-image">
+            <div class="car-info">
+                <h3>2025 Family SUV</h3>
+                <p>Starting at $40,000</p>
+            </div>
+        </div>
+
+        <!-- Add more car cards as needed -->
+    </div>
+
+    <!-- Popup and Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="dealPopup">
+        <div class="close-button" onclick="closePopup()">&times;</div>
+        <h2>🎉 Steering Into The New Year Deal! 🎉</h2>
+        <p>Get any 2025 model for $0 down and only $100/month for 48 months!</p>
+        <form id="dealForm">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Home Address:</label>
+                <input type="text" id="address" required>
+            </div>
+            <button type="submit" class="submit-button">Claim This Deal!</button>
+        </form>
+    </div>
+
+    <script>
+        // Show popup after 8 seconds
+        setTimeout(function() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('dealPopup').style.display = 'block';
+        }, 8000);
+
+        // Close popup function
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('dealPopup').style.display = 'none';
+        }
+
+        // Form submission handler
+        document.getElementById('dealForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! A representative will contact you shortly.');
+            closePopup();
+        };
+    </script>
+</body>
+</html>
