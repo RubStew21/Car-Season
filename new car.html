@@ -1,0 +1,111 @@
+<!-- new-cars.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Cars - Know Your Worth Fort Worth</title>
+    <style>
+        /* [Previous styles remain the same] */
+        
+        .price-category {
+            text-align: center;
+            padding: 40px 0;
+            background: #f9f9f9;
+            margin: 20px 0;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-header {
+            font-size: 2em;
+            color: #ff0000;
+            margin-bottom: 30px;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Know Your Worth Fort Worth</div>
+        <p>New Cars Selection</p>
+    </div>
+
+    <div class="price-category">
+        <h2 class="price-header">From $20,000</h2>
+        <div class="car-grid">
+            <div class="car-card">
+                <img src="sedan-basic.jpg" alt="Entry Level Sedan" class="car-image">
+                <div class="car-info">
+                    <h3>2025 Economy Sedan</h3>
+                    <p>Starting at $22,995</p>
+                    <ul>
+                        <li>35 MPG City / 42 MPG Highway</li>
+                        <li>Advanced Safety Features</li>
+                        <li>7" Touchscreen Display</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add more cars in this price range -->
+        </div>
+    </div>
+
+    <div class="price-category">
+        <h2 class="price-header">From $30,000</h2>
+        <div class="car-grid">
+            <div class="car-card">
+                <img src="sedan-mid.jpg" alt="Mid-Range Sedan" class="car-image">
+                <div class="car-info">
+                    <h3>2025 Premium Sedan</h3>
+                    <p>Starting at $32,995</p>
+                    <ul>
+                        <li>Leather Interior</li>
+                        <li>Premium Sound System</li>
+                        <li>Advanced Driver Assistance</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add more cars in this price range -->
+        </div>
+    </div>
+
+    <div class="price-category">
+        <h2 class="price-header">$40,000+</h2>
+        <div class="car-grid">
+            <div class="car-card">
+                <img src="sedan-luxury.jpg" alt="Luxury Sedan" class="car-image">
+                <div class="car-info">
+                    <h3>2025 Luxury Sedan</h3>
+                    <p>Starting at $44,995</p>
+                    <ul>
+                        <li>Premium Leather Interior</li>
+                        <li>Panoramic Sunroof</li>
+                        <li>Full Self-Driving Capability</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add more cars in this price range -->
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">Back to Home</a>
+</body>
+</html>
